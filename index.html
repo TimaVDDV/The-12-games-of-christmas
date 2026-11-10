@@ -152,4 +152,20 @@ function startMusic(){let AC=window.AudioContext||window.webkitAudioContext;if(!
 function stopMusic(){if(!state.audio)return;state.audio.master.gain.setTargetAtTime(.0001,state.audio.c.currentTime,.2);state.audioOn=false;updateSound()}
 function updateSound(){$('#ambient').textContent='♫  CHRISTMAS AMBIENCE: '+(state.audioOn?'ON':'OFF');$('#ambient').classList.toggle('on',state.audioOn);$('#soundBtn').textContent=state.audioOn?'♫':'♪'}
 function toggleSound(){state.audioOn?stopMusic():startMusic()}$('#soundBtn').onclick=toggleSound;$('#ambient').onclick=toggleSound;
-</script></body></html>
+</script>
+<script type="module">
+  import { createClient } from
+    'https://esm.sh/@supabase/supabase-js@2';
+
+  const supabase = createClient(
+    'https://ayeqiqflkmtfbogrlnkt.supabase.co',
+    'sb_publishable_s9dYNRL3nTgl_NffRgWDgw_3inUgrSh'
+  );
+
+  window.supabaseClient = supabase;
+
+  console.log('Supabase connected!');
+</script>
+          
+</body>
+</html>
